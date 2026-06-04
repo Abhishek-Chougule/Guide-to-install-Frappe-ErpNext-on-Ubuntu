@@ -331,8 +331,22 @@ bench setup add-domain www.mrabhi.com --site mrabhi.com
 ## Install SSL Dependencies
 
 ```bash
+#dont use this if using uv
 sudo pip install -U pyOpenSSL cryptography
 sudo pip install certbot
+
+#use
+sudo snap install core
+sudo snap refresh core
+sudo snap install --classic certbot
+
+sudo ln -s /snap/bin/certbot /usr/bin/certbot
+
+#can do this for ssl certificate setup
+sudo certbot --nginx
+
+#but i recommend below
+sudo -H bench setup lets-encrypt site_name
 ```
 
 ## Generate SSL
